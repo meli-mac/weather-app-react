@@ -8,6 +8,12 @@ export default function App() {
       <div className="container">
         <Weather />
       </div>
+      <footer>
+        <a href="https://github.com/meli-mac/weather-app-react">
+          Open-source code
+        </a>{" "}
+        by Melissa Machado
+      </footer>
     </div>
   );
 }

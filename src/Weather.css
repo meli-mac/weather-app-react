@@ -5,3 +5,71 @@
   border-radius: 20px;
   border: 6px double #b46060;
 }
+
+.Weather input {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+}
+
+.Weather .citySearch {
+  text-align: center;
+  color: #b46060;
+  background: #fff4e0;
+  border: 3px double #b46060;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 7px;
+}
+
+.Weather .searchButton {
+  color: #b46060;
+  background: #fff4e0;
+  border: 3px double #b46060;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  transition: all 200ms ease-in-out;
+  border-radius: 7px;
+}
+
+.Weather .currentLocationButton {
+  color: #b46060;
+  background: #fff4e0;
+  border: 3px double #b46060;
+  text-align: center;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  padding: 0.375rem 0.75rem;
+  border-radius: 7px;
+  transition: all 200ms ease-in-out;
+}
+
+.Weather h1 {
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+.Weather .degree {
+  position: relative;
+  top: -35px;
+}
+
+.Weather ul {
+  list-style: none;
+  margin-left: -40px;
+  margin-top: -10px;
+}
+
+.Weather .weatherOverview {
+  margin-left: 30px;
+}
+
+.Weather .temperature {
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+.Weather img {
+  font-size: 50px;
+  padding-left: 180px;
+}
