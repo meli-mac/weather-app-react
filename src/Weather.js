@@ -8,14 +8,14 @@ export default function Weather(props) {
     console.log(response.data);
     setweatherData({
       ready: true,
-      temperature: response.data.main.temp,
-      date: "Mon December 4",
-      description: response.data.weather[0].description,
+      temperature: response.data.temperature.current,
+      date: response.data.time * 1000,
+      description: response.data.condition.description,
       iconUrl:
         "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAYxJREFUaN7tmMERgyAQRS2BEizBEizBEiyBEizBEizBEiyB679Zgh1sLpsMIRgRAZOZdeYfNBPY94FdoCKi6p9VCYAACIAACIAAvF5OPgAUgBHACoAsrfxdVQmfpAAAOgCbE7irDUD3cwAA+oPAXXW3AABoAczs5MKuqwDnfSOhigJwsG4gDc9titDA/x8cNbkAPhbmzvcUMiEgwQDslNvJwr9RRvWpAFpP4xOAOjMAfRuJIAArt3vTYQEAEw3Awa8e55WVkeiuUQgBmD2ZQxUM/NVvLIDPeVM4+CQA603OXwZ4uq13MlEpLVah0wDqUADNDdzp/p7Gs5WYflDTvwMQgP4OgM2ey1zRdcSulgCY0gDGKoQTL9CJ3+00vbAO24zdjcY6rzhg78LcOabOKQCGBAAh6bhnwM0poNNVABU5R23V3wI5qAN7/ZszR8rOc4IKFrexXIDvPe22ya5VDq5bngs2dhTbrNcqBwAmUQIYiwNk2EPp0gBNrp2pXO4KgAAIgAAIgAAIgAC86wECCuvGtH3EIQAAAABJRU5ErkJggg==",
-      humidity: response.data.main.humidity,
+      humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
-      city: response.data.name,
+      city: response.data.city,
     });
   }
 
@@ -52,7 +52,7 @@ export default function Weather(props) {
             <span className="temperature">
               {Math.round(weatherData.temperature)}
             </span>
-            <span class="degree">°F</span>
+            <span className="degree">°F</span>
             <img src={weatherData.iconUrl} alt={weatherData.description} />
           </div>
           <div className="col-6">
@@ -69,7 +69,7 @@ export default function Weather(props) {
     );
   } else {
     const apiKey = "560eatef1f75aofbc96fd19f393b84ab";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}}&units=imperial`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";
