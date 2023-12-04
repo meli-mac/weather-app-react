@@ -8,14 +8,17 @@ export default function Weather(props) {
   function handleResponse(response) {
     setweatherData({
       ready: true,
-      temperature: response.data.temperature.current,
-      date: new Date(response.data.time * 1000),
-      description: response.data.condition.description,
+      city: response.data.name,
+      temperature: Math.round(response.data.main.temp),
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].main,
       iconUrl:
         "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAYxJREFUaN7tmMERgyAQRS2BEizBEizBEiyBEizBEizBEiyB679Zgh1sLpsMIRgRAZOZdeYfNBPY94FdoCKi6p9VCYAACIAACIAAvF5OPgAUgBHACoAsrfxdVQmfpAAAOgCbE7irDUD3cwAA+oPAXXW3AABoAczs5MKuqwDnfSOhigJwsG4gDc9titDA/x8cNbkAPhbmzvcUMiEgwQDslNvJwr9RRvWpAFpP4xOAOjMAfRuJIAArt3vTYQEAEw3Awa8e55WVkeiuUQgBmD2ZQxUM/NVvLIDPeVM4+CQA603OXwZ4uq13MlEpLVah0wDqUADNDdzp/p7Gs5WYflDTvwMQgP4OgM2ey1zRdcSulgCY0gDGKoQTL9CJ3+00vbAO24zdjcY6rzhg78LcOabOKQCGBAAh6bhnwM0poNNVABU5R23V3wI5qAN7/ZszR8rOc4IKFrexXIDvPe22ya5VDq5bngs2dhTbrNcqBwAmUQIYiwNk2EPp0gBNrp2pXO4KgAAIgAAIgAAIgAC86wECCuvGtH3EIQAAAABJRU5ErkJggg==",
-      humidity: response.data.temperature.humidity,
-      wind: response.data.wind.speed,
-      city: response.data.city,
+      feelsLike: Math.round(response.data.main.feels_like),
+      humidity: response.data.main.humidity,
+      wind: Math.round(response.data.wind.speed),
+      minTemp: Math.round(response.data.wind.temp_min),
+      maxTemp: Math.round(response.data.wind.temp_max),
     });
   }
 
@@ -59,7 +62,7 @@ export default function Weather(props) {
           </div>
           <div className="col-6">
             <ul className="weatherOverview">
-              <li>Feels like: 51°</li>
+              <li>Feels like: {weatherData.feelsLike}°</li>
               <li>Humidity: {weatherData.humidity}%</li>
               <li>Wind: {weatherData.wind}mph</li>
               <li>Min. Temperature: 49°</li>
@@ -70,8 +73,8 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    const apiKey = "560eatef1f75aofbc96fd19f393b84ab";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=imperial`;
+    const apiKey = "49b631c45785fe73d2a88477803dea22";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";
