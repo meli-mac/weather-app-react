@@ -1,0 +1,7 @@
+.WeatherTemperature a {
+  text-decoration: none;
+}
+
+.WeatherTemperature a:hover {
+  text-decoration: underline;
+}
