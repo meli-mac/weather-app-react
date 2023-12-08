@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.WeatherForecast img {
+  display: block;
+  margin-left: 100px;
+}
+
 .WeatherForecast-temperatures {
   display: block;
   margin-top: 10px;
