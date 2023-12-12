@@ -9,7 +9,11 @@ export default function App() {
         <Weather defaultCity="New York" />
       </div>
       <footer>
-        <a href="https://github.com/meli-mac/weather-app-react">
+        <a
+          href="https://github.com/meli-mac/weather-app-react"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Open-source code
         </a>{" "}
         by Melissa Machado
