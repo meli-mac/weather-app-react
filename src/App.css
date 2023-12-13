@@ -1,3 +1,9 @@
+.App {
+  font-family: "Be Vietnam Pro", sans-serif;
+  background: #fff4e0;
+  color: #b46060;
+}
+
 .App footer {
   text-align: center;
   margin-top: -20px;

@@ -1,7 +1,4 @@
-.WeatherTemperature a {
-  text-decoration: none;
-}
-
-.WeatherTemperature a:hover {
-  text-decoration: underline;
+.WeatherTemperature .degree {
+  position: relative;
+  top: -35px;
 }
