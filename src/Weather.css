@@ -36,7 +36,7 @@
 .Weather .searchButton:hover {
   color: #fff4e0;
   background: #b46060;
-  border: 3px double #b46060;
+  border: 3px double #fff4e0;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
   transition: all 200ms ease-in-out;
